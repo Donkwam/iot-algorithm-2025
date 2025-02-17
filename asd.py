@@ -7,7 +7,7 @@ class LinkedList:                           # ex: 이 클래스의 이름은 Lin
     def __init__(self):                     # init 메서드 , 클래스가 생성될 때, 실행되는 메서드이다.
         self.head = None                    #
         self.nodes = []                     #
-        self.count = 0                      #
+                                            #
 
     class Node:                             # 새로운 개념 : 이너클래스 (클래스 안의 클래스, 클래스와 개념은 같다.)
         def __init__(self, data):           # init 메서드 , 클래스가 생성될 때, 실행되는 메서드이다.
@@ -24,7 +24,7 @@ class LinkedList:                           # ex: 이 클래스의 이름은 Lin
             self.head = new_node            #
             prevNode = None                 #
         else:                               #
-            self.nodes[-1].link = new_node  #
+            self.nodes[-1].next = new_node  #
             prevNode = self.nodes[-1]       #
         self.nodes.append(new_node)         #
         self.nodes[-1].prev = prevNode      #
@@ -43,13 +43,14 @@ class LinkedList:                           # ex: 이 클래스의 이름은 Lin
 
         if curNode.prev != None:            #
             new_node.prev = curNode.prev    #
+            curNode.prev.next = new_node    #
+            curNode.prev = new_node         #
+            new_node.next = curNode         #
         else:                               #
             self.head = new_node            #
             new_node.prev = None            #
-
-        curNode.prev.next = new_node        #
-        curNode.prev = new_node             #
-        new_node.next = curNode             #
+            new_node.next = curNode         #
+            curNode.prev = new_node         #
     
     def delete(self,del_data):              # delete 메서드, 매개변수로 지울 값을 입력받은 후 검색하여 노드를 삭제합니다.
         for node in self.nodes:             #
@@ -73,12 +74,26 @@ class LinkedList:                           # ex: 이 클래스의 이름은 Lin
                 break                       #
         return findNode                     #
 
-    def print_list(self):                   # print_list 메서드, 현재 리스트에 존재하는 요소들을 출력합니다.
+    def print_list(self,reverse = False):                   # print_list 메서드, 현재 리스트에 존재하는 요소들을 출력합니다.
         current = self.head                 #
-        while current:                      #
-            print(current, end=" -> ")      #
-            current = current.next          #
-        print("None")                       #
+        if reverse == False:                #
+            print('정방향 출력 : ', end = '')#
+            while current:                  #
+                print(current, end=" -> ")  #
+                current = current.next      #
+            print("None")                   #
+        else :                              #
+            print('역방향 출력 : ', end = '')#
+            while True:                     #
+                if current.next != None:    #
+                    current = current.next  #
+                else: break                 #
+            while True:                     #
+                print(current, end = ' --> ')#
+                current = current.prev      #
+                if current == None:         #
+                    break                   #
+            print("None")                     #
 
 list1 = LinkedList()
 list1.append('김씨')
