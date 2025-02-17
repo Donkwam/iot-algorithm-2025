@@ -19,6 +19,9 @@ class Node:
 
     def getLink(self):
         return self.__link
+    
+    def __str__(self):
+        return self.__data
 
 def printNodes(start):
     curr = start
@@ -91,7 +94,8 @@ def findNode(findData):
         if curr.getData() == findData:
             return curr
         
-    return None
+    return None # 찾는 데이터가 없음
+
 
 # 연결리스트 생성 구현
 if __name__ == '__main__':  # 시작모듈일때
@@ -118,6 +122,13 @@ if __name__ == '__main__':  # 시작모듈일때
 
     insertNode('', '문별')
     printNodes(head)
+
+    # 데이터 검색
+    fNode = findNode('화사')
+    print(fNode)
+
+    fNode = findNode('유고')
+    print(fNode)
 
     # 데이터 삭제
     deleteNode('화사')
