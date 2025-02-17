@@ -35,6 +35,49 @@ def printNodes(start):
 
     print() # 그냥 한줄 내려줌
 
+def insertNode(findData, insertData):
+    global memory, head, prev, curr # 전역변수를 가져와서 insertNode함수안에서 쓰겠다는 선언
+
+    # 맨 처음에 데이터 삽입
+    if head.getData() == findData:
+        node = Node(insertData)
+        node.setLink(head)  # 현재 head가 가리키는 node를 새노드의 링크로 연결
+        head = node # head는 새node로 설정
+        return  # 더이상 밑으로 실행안되도록 함수 탈출
+
+    # 중간에 데이터 삽입
+    curr = head
+    while curr.getLink() != None:
+        prev = curr
+        curr = curr.getLink()
+        if curr.getData() == findData:
+            node = Node(insertData)
+            node.setLink(curr)
+            prev.setLink(node)
+            return  # 더이상 밑의 로직이 실행안되도록 함수탈출
+    
+    # 마지막에 데이터 삽입
+    node = Node(insertData)
+    curr.setLink(node)
+
+def deleteNode(deleteData):
+    global memory, head, prev, curr
+
+    if head.getData() == deleteData:    # 첫번째 노드 삭제
+        curr = head
+        head = head.getLink()
+        del(curr)
+        return
+    
+    curr = head # 중간 노드 삭제
+    while curr.getLink != None:
+        prev = curr
+        curr = curr.getLink()
+        if curr.getData() == deleteData:
+            prev.setLink(curr.getLink())    # 지울 노드의 링크를 prev에서 가리키도록
+            del(curr)
+            return
+
 
 # 연결리스트 생성 구현
 if __name__ == '__main__':  # 시작모듈일때
@@ -51,3 +94,23 @@ if __name__ == '__main__':  # 시작모듈일때
 
     printNodes(head)
     # 5개 데이터를 가지는 연결리스트
+
+    # 데이터 삽입 구현
+    insertNode('다현', '화사')
+    printNodes(head)
+
+    insertNode('사나', '솔라')
+    printNodes(head)
+
+    insertNode('', '문별')
+    printNodes(head)
+
+    # 데이터 삭제
+    deleteNode('화사')
+    printNodes(head)
+
+    deleteNode('쯔위')
+    printNodes(head)
+
+    deleteNode('유고')
+    printNodes(head)

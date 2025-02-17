@@ -1,3 +1,3 @@
-rnrneks =int(input('구구단을 입력하세요'))
-for i in range(1,10):
-    print((rnrneks*int(i)), end=' ')
+sample4 = [20,30,40,50]
+for idx, value in enumerate(sample4):
+    print(f'인덱스{idx} : {value}', end=' ')
