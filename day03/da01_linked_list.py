@@ -69,10 +69,11 @@ def deleteNode(deleteData):
         del(curr)
         return
     
-    curr = head # 중간 노드 삭제
+    curr = head # 중간, 마지막 노드 삭제
     while curr.getLink != None:
         prev = curr
         curr = curr.getLink()
+        if curr is None: return
         if curr.getData() == deleteData:
             prev.setLink(curr.getLink())    # 지울 노드의 링크를 prev에서 가리키도록
             del(curr)
