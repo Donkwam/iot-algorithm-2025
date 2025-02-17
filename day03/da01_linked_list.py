@@ -73,12 +73,25 @@ def deleteNode(deleteData):
     while curr.getLink != None:
         prev = curr
         curr = curr.getLink()
-        if curr is None: return
+        if curr is None: return # 단순로직으로 예외처리
         if curr.getData() == deleteData:
             prev.setLink(curr.getLink())    # 지울 노드의 링크를 prev에서 가리키도록
             del(curr)
             return
+        
+def findNode(findData):
+    global prev, curr, memory, head
 
+    curr = head
+    if curr.getData() == findData:
+        return curr
+    
+    while curr.getLink() != None:
+        curr = curr.getLink()
+        if curr.getData() == findData:
+            return curr
+        
+    return None
 
 # 연결리스트 생성 구현
 if __name__ == '__main__':  # 시작모듈일때
