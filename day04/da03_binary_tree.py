@@ -26,14 +26,14 @@ if __name__ == '__main__':
 
         current = root
         while True:
-            if name > current.data: # 현재 name이 노드안 데이터보다 작으면, 왼쪽으로
+            if name < current.data: # 현재 name이 노드안 데이터보다 작으면, 왼쪽으로
                 if current.left == None:
                     current.left = node
                     break
                 else:
                     current = current.left  # 왼쪽으로 더 내려감
             else:   # 오른쪽으로 보냄
-                if current.left == None:
+                if current.right == None:
                     current.right = node
                     break
                 else:
