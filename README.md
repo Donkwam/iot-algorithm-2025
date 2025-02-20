@@ -81,7 +81,12 @@ IoT 개발자 자료구조와 알고리즘(코딩테스트) 리포지토리2025
 - 자료구조/ 알고리즘
     - 재귀호출
         - 재귀호출 연습 : [노트북](./day06/da01_recursive_practice.ipynb)
-        - 프랙탈 연습 
+        - 프랙탈 연습
+          
+
+https://github.com/user-attachments/assets/ec3d41a5-1944-40b4-b1e3-b1ab2de3a05e
+
+
 
 
 - 자료구조/ 알고리즘
