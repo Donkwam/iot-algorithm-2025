@@ -104,5 +104,6 @@ https://github.com/user-attachments/assets/ec3d41a5-1944-40b4-b1e3-b1ab2de3a05e
 
 ## 8일차
 - 자료구조/알고리즘
-    - 검색
+    - 검색 : [노트북](./day08/da01_search.ipynb)
+        - 검색 구현 : [파이썬](./day08/da99_Sort.py)
     - 코딩테스트
