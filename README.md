@@ -98,6 +98,8 @@ https://github.com/user-attachments/assets/ec3d41a5-1944-40b4-b1e3-b1ab2de3a05e
         - 퀵 정렬
         - 정렬 알고리즘 응용
 
+        <img src= "./image/da002.png" width = "600">
+
     - 동적 계획법
 
 ## 8일차
